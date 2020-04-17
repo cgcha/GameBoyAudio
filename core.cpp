@@ -51,20 +51,48 @@ struct Registers
     uint16_t hl;
 
 };
-struct FlagsRegister
+struct FlagsRegister //lower 8bit of af register
 {
-    bool zero;
-    bool subtract;
-    bool half_carry;
-    bool carry;
+    bool zero;  // zf flag - bit 7
+                // set to (1) if the result of an operation
+                // has been (0). For conditional jumps
+    bool subtract;   // n flag - bit 6
+    bool half_carry; // h flag - bit 5
+                     // n and h rarely used, mostly for overflow or underflow
+
+
+    bool carry; //cy flag - bit 4
+    //bits 3-0 are unused and always zero
 };
 
-
-void get_af() // doPrint() is the called function in this example
-{
-    std::cout << "In doPrint()\n";
+void reset() {
+    //af = 0x01B0;
+    //bc = 0x0013;
+    //de = 0x00D8;
+    //hl = 0x014D;
+    //SP = 0xFFFE;
+    //PC = 0x0100;
 }
 
+void get_af() 
+{
+    
+}
+
+void get_bc() 
+{
+    
+}
+
+void get_de() 
+{
+    
+}
+
+void get_hl() 
+{
+    
+}
 
 
 // Opcode documentation from http://www.devrs.com/gb/files/opcodes.html
